@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.OnLifecycleEvent
 import com.intive.selftraining.selftraining.listmovies.model.Movie
 import com.intive.selftraining.selftraining.network.CustomScheduler
-import com.intive.selftraining.selftraining.utils.ErrorHandler
+import com.intive.selftraining.selftraining.network.ErrorHandler
 import com.intive.selftraining.selftraining.utils.mvvm.RxViewModel
 import timber.log.Timber
 

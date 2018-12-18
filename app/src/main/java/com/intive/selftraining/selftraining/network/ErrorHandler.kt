@@ -1,4 +1,4 @@
-package com.intive.selftraining.selftraining.utils
+package com.intive.selftraining.selftraining.network
 
 import android.content.Context
 import android.widget.Toast

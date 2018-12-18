@@ -7,7 +7,7 @@ import com.intive.selftraining.selftraining.model.getMovie
 import com.intive.selftraining.selftraining.model.getMoviesResponseEntity
 import com.intive.selftraining.selftraining.network.CustomScheduler
 import com.intive.selftraining.selftraining.network.NetworkInterface
-import com.intive.selftraining.selftraining.utils.ErrorHandler
+import com.intive.selftraining.selftraining.network.ErrorHandler
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import io.reactivex.Observable

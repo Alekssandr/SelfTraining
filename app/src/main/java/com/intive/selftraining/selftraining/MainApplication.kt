@@ -1,8 +1,7 @@
 package com.intive.selftraining.selftraining
 
 import android.app.Application
-import com.intive.selftraining.selftraining.di.appModule
-import org.koin.android.ext.android.startKoin
+import com.intive.selftraining.selftraining.di.DaggerAppComponent
 import timber.log.Timber
 
 class MainApplication : Application() {
@@ -13,6 +12,7 @@ class MainApplication : Application() {
             Timber.plant(Timber.DebugTree())
         }
 
-        startKoin(this, listOf(appModule))
+        // startKoin(this, listOf(appModule))
+        DaggerAppComponent.create().inject(this)
     }
 }
