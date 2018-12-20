@@ -72,6 +72,19 @@ dependencies {
     implementation "com.google.android.material:material:$supportLibraryVersion"
     implementation "androidx.gridlayout:gridlayout:$supportLibraryVersion"
 
+    //Koin for Android
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+
+    //Dagger 2
+    implementation "com.google.dagger:dagger:$dagger"
+    kapt "com.google.dagger:dagger-compiler:$dagger"
+
+    implementation "com.google.dagger:dagger-android:$dagger"
+    implementation "com.google.dagger:dagger-android-support:$dagger"
+//    kapt "com.google.dagger:dagger-android-processor:$dagger"
+
+
     //ViewModel
     implementation "androidx.lifecycle:lifecycle-extensions:$androidArchitectureVersion"
     kapt "androidx.lifecycle:lifecycle-compiler:$androidArchitectureVersion"
@@ -89,14 +102,6 @@ dependencies {
     //Glide
     implementation "com.github.bumptech.glide:glide:$glide"
     kapt "com.github.bumptech.glide:compiler:$glide"
-
-    //Koin for Android
-    implementation "org.koin:koin-android:$koin_version"
-    implementation "org.koin:koin-android-viewmodel:$koin_version"
-
-    //Dagger 2
-    implementation "com.google.dagger:dagger:$dagger"
-    kapt "com.google.dagger:dagger-compiler:$dagger"
 
     //Ktlint
     ktlint "com.github.shyiko:ktlint:$ktlint_version"

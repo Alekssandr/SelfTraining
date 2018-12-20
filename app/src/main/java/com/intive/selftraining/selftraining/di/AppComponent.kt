@@ -2,17 +2,18 @@ package com.intive.selftraining.selftraining.di
 
 import com.intive.selftraining.selftraining.MainApplication
 import dagger.Component
+import dagger.android.AndroidInjector
+import dagger.android.support.AndroidSupportInjectionModule
+import dagger.android.support.DaggerApplication
 import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
+    AndroidSupportInjectionModule::class,
     AppModule::class,
     NetworkModule::class,
     ListMoviesModule::class,
     MovieDetailsModule::class])
-interface AppComponent {
+interface AppComponent: AndroidInjector<DaggerApplication> {
     fun inject(app: MainApplication)
-//    fun injectOkHttpClient(okHttpClient: OkHttpClient)
-//    fun injectRetrofit(retrofit: Retrofit)
-//    fun injectNetworkInterface(networkInterface: NetworkInterface)
 }
