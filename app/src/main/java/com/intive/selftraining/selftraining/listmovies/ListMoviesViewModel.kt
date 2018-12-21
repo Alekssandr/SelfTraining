@@ -15,8 +15,7 @@ class ListMoviesViewModel(
     private val repo: ListMoviesRepository,
     private val customScheduler: CustomScheduler,
     private val errorHandler: ErrorHandler
-) :
-    RxViewModel(), LifecycleObserver {
+) : RxViewModel(), LifecycleObserver {
 
     val resultsList: MutableLiveData<List<Movie>> = MutableLiveData()
     val progressBarVisibility = MutableLiveData<Int>().apply {

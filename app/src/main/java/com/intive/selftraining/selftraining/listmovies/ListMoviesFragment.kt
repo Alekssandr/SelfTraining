@@ -1,5 +1,6 @@
 package com.intive.selftraining.selftraining.listmovies
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,17 +12,21 @@ import com.intive.selftraining.selftraining.databinding.FragmentListMoviesBindin
 import com.intive.selftraining.selftraining.di.observeLifecycleIn
 import com.intive.selftraining.selftraining.listmovies.adapter.ItemsAdapter
 import com.intive.selftraining.selftraining.utils.SPAN_COUNT
-import org.koin.android.viewmodel.ext.android.viewModel
+import dagger.android.support.AndroidSupportInjection
+import javax.inject.Inject
 
 class ListMoviesFragment : Fragment() {
 
-    private val listMoviesViewModel: ListMoviesViewModel by viewModel()
+    @Inject
+    lateinit var listMoviesViewModel: ListMoviesViewModel //TODO this is not initialized, how do I initialize it when injecting?
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         this.observeLifecycleIn(listMoviesViewModel)
         val activityMainBinding: FragmentListMoviesBinding? =
             DataBindingUtil.inflate(inflater, R.layout.fragment_list_movies, container, false)
@@ -36,9 +41,8 @@ class ListMoviesFragment : Fragment() {
         return view
     }
 
-    private fun initRecycler(
-        activityMainBinding: FragmentListMoviesBinding
-    ) {
+    private fun initRecycler(activityMainBinding: FragmentListMoviesBinding) {
+
         val layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, SPAN_COUNT)
 
         val recyclerMovies = activityMainBinding.recyclerMovies

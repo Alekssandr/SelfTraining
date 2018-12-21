@@ -1,4 +1,4 @@
-package com.intive.selftraining.selftraining.di
+package com.intive.selftraining.selftraining.listmovies.di
 
 import androidx.lifecycle.ViewModelProviders
 import com.intive.selftraining.selftraining.di.scopes.ActivityScope
@@ -7,7 +7,6 @@ import com.intive.selftraining.selftraining.listmovies.ListMoviesRepository
 import com.intive.selftraining.selftraining.listmovies.ListMoviesViewModel
 import com.intive.selftraining.selftraining.network.CustomScheduler
 import com.intive.selftraining.selftraining.network.ErrorHandler
-import com.intive.selftraining.selftraining.network.NetworkInterface
 import dagger.Module
 import dagger.Provides
 
@@ -16,13 +15,7 @@ class ListMoviesModule {
 
     @ActivityScope
     @Provides
-    fun provideListMoviesRepository(networkInterface: NetworkInterface): ListMoviesRepository {
-        return ListMoviesRepository(networkInterface)
-    }
-
-    @ActivityScope
-    @Provides
-    fun listMoviesViewModelFactory(
+    fun providesListMoviesViewModelFactory(
         repo: ListMoviesRepository,
         customScheduler: CustomScheduler,
         errorHandler: ErrorHandler

@@ -2,7 +2,6 @@ package com.intive.selftraining.selftraining
 
 import android.app.Activity
 import android.app.Application
-import com.intive.selftraining.selftraining.di.AppModule
 import com.intive.selftraining.selftraining.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -20,10 +19,7 @@ class MainApplication : Application(), HasActivityInjector {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-        // startKoin(this, listOf(appModule))
-        //DaggerAppComponent.create().inject(this)
         DaggerAppComponent.builder()
-            .appModule(AppModule(this))
             .build()
             .inject(this)
     }

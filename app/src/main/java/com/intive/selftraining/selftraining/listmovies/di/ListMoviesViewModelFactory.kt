@@ -1,4 +1,4 @@
-package com.intive.selftraining.selftraining.di
+package com.intive.selftraining.selftraining.listmovies.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

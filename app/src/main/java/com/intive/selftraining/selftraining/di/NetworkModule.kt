@@ -2,6 +2,8 @@ package com.intive.selftraining.selftraining.di
 
 import android.content.Context
 import androidx.annotation.NonNull
+import com.intive.selftraining.selftraining.di.scopes.ActivityScope
+import com.intive.selftraining.selftraining.listmovies.ListMoviesRepository
 import com.intive.selftraining.selftraining.network.CustomScheduler
 import com.intive.selftraining.selftraining.network.ErrorHandler
 import com.intive.selftraining.selftraining.network.KeyInterceptor
@@ -50,5 +52,11 @@ class NetworkModule {
     @Provides
     fun provideErrorHandler(context: Context): ErrorHandler {
         return ErrorHandler(context)
+    }
+
+    @ActivityScope
+    @Provides
+    fun provideListMoviesRepository(networkInterface: NetworkInterface): ListMoviesRepository {
+        return ListMoviesRepository(networkInterface)
     }
 }
